@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { debounceTime, takeUntil } from 'rxjs';
 import { contentExpansionHorizontal } from 'src/app/animations/content-expansion/content-expansion-horizontal';
 import { getSortingRussianAsArray, ISelectOption, Sort } from 'src/app/interfaces/search';
@@ -16,8 +16,8 @@ import { SearchItemsService } from 'src/app/services/search-items/search-items.s
 export class SearchBarComponent implements OnInit {
 
   public sort: ISelectOption[] = getSortingRussianAsArray();
-  public sortForm: FormGroup = this._form.getSortForm();
-  public searchForm: FormGroup = this._form.getSearchForm(); 
+  public sortForm: UntypedFormGroup = this._form.getSortForm();
+  public searchForm: UntypedFormGroup = this._form.getSearchForm(); 
 
   @Output() madeSearch: EventEmitter<Sort> = new EventEmitter<Sort>();
 

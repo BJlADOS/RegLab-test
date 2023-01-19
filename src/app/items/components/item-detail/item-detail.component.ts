@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { timeStamp } from 'console';
 import { format } from 'path';
@@ -17,7 +17,7 @@ import { ItemService } from 'src/app/services/item/item.service';
 })
 export class ItemDetailComponent implements OnInit {
 
-  public itemForm!: FormGroup;
+  public itemForm!: UntypedFormGroup;
   public item?: IItem;
 
   public isEditing: boolean = false;

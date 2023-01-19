@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { IItem } from 'src/app/interfaces/item';
 
 @Injectable({
@@ -7,33 +7,33 @@ import { IItem } from 'src/app/interfaces/item';
 })
 export class FormGeneratorService {
 
-  private _fb: FormBuilder = new FormBuilder();
+  private _fb: UntypedFormBuilder = new UntypedFormBuilder();
 
   constructor() { }
 
-  public getItemForm(item?: IItem): FormGroup {
+  public getItemForm(item?: IItem): UntypedFormGroup {
     return this._fb.group({
-      title: new FormControl(item?.title?? '', Validators.compose([
+      title: new UntypedFormControl(item?.title?? '', Validators.compose([
         Validators.required,
       ])),
-      description: new FormControl(item?.description?? '', Validators.compose([
+      description: new UntypedFormControl(item?.description?? '', Validators.compose([
         Validators.required,
       ])),
-      price: new FormControl(item?.price?? null, Validators.compose([
+      price: new UntypedFormControl(item?.price?? null, Validators.compose([
         Validators.required,
       ])),
     })
   }
 
-  public getSortForm(): FormGroup {
+  public getSortForm(): UntypedFormGroup {
     return this._fb.group({
-      sort: new FormControl('asc'),
+      sort: new UntypedFormControl('asc'),
     })
   }
 
-  public getSearchForm(): FormGroup {
+  public getSearchForm(): UntypedFormGroup {
     return this._fb.group({
-      search: new FormControl(''),
+      search: new UntypedFormControl(''),
     })
   }
 }

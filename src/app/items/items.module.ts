@@ -8,6 +8,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { itemsRouting } from './items-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     itemsRouting,
     SharedModule,
     ReactiveFormsModule,
+    NgxMaskModule.forChild(),
   ]
 })
 export class ItemsModule { }
