@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <div class="wrapper-grid">
+        <div class="wrapper-flex column-1-13">
+            <div class="content">
+                <div class="search">
+                    <app-search-bar (madeSearch)="updateSearch($event)"></app-search-bar>
+                </div>
+                <div class="content__main">
+                    <div class="items" [style.grid-template-columns]="'repeat(' + columnsNumber + ', 1fr)'">
+                        <app-item-card class="item" *ngFor="let item of items" [item]="item"></app-item-card>
+                    </div>
+                </div>
+                <div class="scroll-back" *ngIf="canScrollBack" (click)="scrollBack()">
+                    <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.57534 17.5V0.5M6.57534 0.5L1 7.03846M6.57534 0.5L12 7.03846" stroke="white"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

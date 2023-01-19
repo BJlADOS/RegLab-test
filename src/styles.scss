@@ -1,1 +1,129 @@
 /* You can add global styles to this file, and also import other style files */
+@function hexToRgb($hex) {
+    @return red($hex), green($hex), blue($hex);
+}
+
+html {
+    --white: #fff;
+    --black: #000;
+    --grey: #d9d9d9;
+    --font-color-main: #4c4c4c;
+    --main-accent-color: #2e5bff;
+    --main-accent-color-dark: #1b34da;
+    --main-accent-color-rgb: #{hexToRgb(#2e5bff)};
+    --main-accent-color-hover: var(--main-accent-color-dark);
+    --link-color: #0D61AF;
+    --additional-accent-color: #f9f9f9;
+    --disabled-color: #949597;
+    --error-color: #ff0000;
+    --success-color: #00ff00;
+    --border-color: #e0e0e0;
+    --input-placeholder-color: var(--disabled-color);
+    --box-shadow-color: rgba(76, 76, 76, 0.1);
+    
+    --font-size: 16px;
+    --font-size-big: 24px;
+    --font-size-small: 14px;
+
+    --box-shadow: 0px 0px 30px 2px var(--box-shadow-color);
+
+    --font-family: 'PT Mono', monospace;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-style: normal;
+    color: var(--font-color-main);
+    background-color: var(--additional-accent-color);
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+        display: none;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: var(--main-accent-color); 
+        border-radius: 10px;
+
+        &:hover {
+            background: var(--main-accent-color-hover);
+        }
+    }
+}
+
+.wrapper-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1em;
+    width: 80%;
+}
+
+.column-1-6 {
+    grid-column: 1 / 6;
+}
+
+.column-1-9 {
+    grid-column: 1 / 9;
+}
+
+.column-4-10 {
+    grid-column: 4 / 10;
+}
+
+.column-1-13 {
+    grid-column: 1 / 13;
+}
+
+.column-11-13 {
+    grid-column: 11 / 13;
+}
+
+@media screen 
+    and (max-width: 1280px)
+{
+    .wrapper-grid {
+        width: 80%;
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+@media screen 
+    and (max-width: 720px)
+{
+    html {
+        --font-size: 12px;
+        --font-size-big: 16px;
+        --font-size-small: 10px;
+    }
+
+    .wrapper-grid {
+        width: 95%;
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+@media screen 
+    and (max-width: 480px)
+{
+    html {
+        --font-size: 12px;
+        --font-size-big: 16px;
+        --font-size-small: 10px;
+    }
+
+    .wrapper-grid {
+        width: 95%;
+        grid-template-columns: repeat(12, 1fr);
+    }
+}

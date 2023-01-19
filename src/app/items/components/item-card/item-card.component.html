@@ -1,0 +1,21 @@
+<div class="wrapper" (click)="toItem()">
+    <div class="wrapper__left">
+        <div class="thumbnail">
+            <img [src]="item.thumbnail" [alt]="item.title">
+        </div>
+        <div class="description">
+            <div class="title">
+                <h2>{{ item.title }}</h2>
+            </div>
+            <div class="text">
+                <span>{{ item.description | shortDescription }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper__right">
+        <div class="actions">
+            <span class="price">{{ item.price }}$</span>
+            <button class="buy-button" (click)="$event.stopPropagation(); buy()">Купить</button>
+        </div>
+    </div>
+</div>

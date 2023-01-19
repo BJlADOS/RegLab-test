@@ -1,0 +1,64 @@
+<div class="wrapper-header">
+    <div class="wrapper-grid">
+        <div class="wrapper-flex column-1-13">
+            <div class="logo">
+                <div appClickOutside class="burger" (clickOutside)="burgerOpened = false">
+                    <label class="burger-icon-toggle" (click)="toggleBurger()">
+                        <div class="spinner diagonal part-1" [class.transform]="burgerOpened"></div>
+                        <div class="spinner horizontal" [class.transform]="burgerOpened"></div>
+                        <div class="spinner diagonal part-2" [class.transform]="burgerOpened"></div>
+                    </label>
+                    <div class="burger-menu" role="listbox" aria-expanded="true" [@contentExpansion]="burgerOpened? 'expanded' : 'collapsed'">
+                        <div class="burger-menu__lines">
+                            <app-route-link-header class="burger-menu__line" [title]="'Товары'" [routeLink]="'/items'"></app-route-link-header>
+                        </div>
+                        <div class="burger-menu__auth">
+                            <div class="burger-menu__line">Вход</div>
+                        </div>
+                    </div>
+                </div>
+                <svg width="103" height="34" viewBox="0 0 103 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16.3355 23.8331H19.7152C19.5392 25.4526 19.0757 26.9019 18.3246 28.181C17.5736 29.4602 16.5115 30.4753 15.1385 31.2263C13.7655 31.9657 12.0521 32.3353 9.99844 32.3353C8.49633 32.3353 7.12917 32.0537 5.89697 31.4904C4.6765 30.9271 3.6262 30.1291 2.74605 29.0964C1.86591 28.052 1.18526 26.8022 0.704116 25.347C0.234705 23.8801 0 22.2489 0 20.4534V17.901C0 16.1055 0.234705 14.4801 0.704116 13.025C1.18526 11.558 1.87177 10.3024 2.76365 9.25794C3.66727 8.2135 4.75278 7.40963 6.02019 6.84634C7.2876 6.28305 8.71343 6.0014 10.2977 6.0014C12.234 6.0014 13.8711 6.3652 15.2089 7.09278C16.5467 7.82037 17.5853 8.8296 18.3246 10.1205C19.0757 11.3996 19.5392 12.8841 19.7152 14.574H16.3355C16.1712 13.377 15.8661 12.3502 15.4201 11.4935C14.9742 10.6251 14.3405 9.95619 13.519 9.48678C12.6976 9.01737 11.6238 8.78266 10.2977 8.78266C9.15937 8.78266 8.15601 8.99976 7.2876 9.43397C6.43092 9.86817 5.7092 10.4843 5.12244 11.2823C4.54741 12.0803 4.11321 13.0367 3.81983 14.1515C3.52645 15.2664 3.37976 16.5045 3.37976 17.8658V20.4534C3.37976 21.709 3.50884 22.8884 3.76702 23.9916C4.03693 25.0947 4.4418 26.0628 4.98162 26.896C5.52144 27.7292 6.20795 28.3864 7.04116 28.8676C7.87436 29.337 8.86012 29.5717 9.99844 29.5717C11.4419 29.5717 12.5919 29.3428 13.4486 28.8852C14.3053 28.4275 14.9507 27.7703 15.3849 26.9136C15.8309 26.057 16.1477 25.0301 16.3355 23.8331Z"
+                        fill="#2E5BFF" />
+                    <path
+                        d="M64.2975 6.35346H72.7821C74.7067 6.35346 76.332 6.64684 77.6581 7.23361C78.9959 7.82037 80.011 8.68878 80.7034 9.83883C81.4075 10.9772 81.7596 12.3795 81.7596 14.0459C81.7596 15.2195 81.519 16.2932 81.0378 17.2673C80.5684 18.2295 79.8878 19.051 78.9959 19.7317C78.1158 20.4006 77.0596 20.8993 75.8274 21.2279L74.8768 21.5976H66.9027L66.8675 18.8339H72.8877C74.1082 18.8339 75.1233 18.6227 75.933 18.2002C76.7427 17.766 77.353 17.1851 77.7637 16.4575C78.1744 15.7299 78.3798 14.9261 78.3798 14.0459C78.3798 13.0602 78.1862 12.1976 77.7989 11.4583C77.4117 10.719 76.8014 10.1498 75.9682 9.75082C75.1467 9.34009 74.0847 9.13472 72.7821 9.13472H67.6949V31.9833H64.2975V6.35346ZM79.2776 31.9833L73.0461 20.3654L76.5843 20.3478L82.9038 31.772V31.9833H79.2776Z"
+                        fill="#2E5BFF" />
+                    <path
+                        d="M94.5745 6.35346V31.9833H91.2299V6.35346H94.5745ZM102.813 6.35346V9.13472H83.0094V6.35346H102.813Z"
+                        fill="#2E5BFF" />
+                    <path
+                        d="M44.6158 14.5846L41.5584 5L38.501 14.5846M44.6158 14.5846L54.5768 14.5626L46.5054 20.4642M44.6158 14.5846L46.5054 20.4642M46.5054 20.4642L49.6042 30.0352L41.5584 24.098L33.5127 30.0352L36.6115 20.4642M36.6115 20.4642L28.5401 14.5626L38.501 14.5846M36.6115 20.4642L38.501 14.5846"
+                        stroke="#2E5BFF" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="content">
+                <div class="content__left">
+                    <app-route-link-header [title]="'Товары'" [routeLink]="'/items'"></app-route-link-header>
+                </div>
+                <div class="content__right">
+                    <button class="login-button" (click)="toLogIn()"><span>Войти</span><svg width="14" height="23"
+                            viewBox="0 0 14 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11 10C10.1716 10 9.5 10.6716 9.5 11.5C9.5 12.3284 10.1716 13 11 13V10ZM13.0607 12.5607C13.6464 11.9749 13.6464 11.0251 13.0607 10.4393L3.51472 0.893398C2.92893 0.307612 1.97918 0.307612 1.3934 0.893398C0.807612 1.47918 0.807612 2.42893 1.3934 3.01472L9.87868 11.5L1.3934 19.9853C0.807612 20.5711 0.807612 21.5208 1.3934 22.1066C1.97918 22.6924 2.92893 22.6924 3.51472 22.1066L13.0607 12.5607ZM11 13H12V10H11V13Z"
+                                fill="#F9F9F9" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper-header__bottom">
+    <div class="wrapper-grid">
+        <div class="wrapper-breadcrumbs column-1-13">
+            <div class="breadcrumbs">
+                <app-breadcrumb [url]="''" [label]="'Cart'"></app-breadcrumb>
+                <div class="wrapper-breadcrumbs__breadcrumb" *ngFor="let breadcrumb of breadcrumbs">
+                    <p>></p>
+                    <app-breadcrumb [url]="breadcrumb.url" [label]="breadcrumb.label"></app-breadcrumb>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

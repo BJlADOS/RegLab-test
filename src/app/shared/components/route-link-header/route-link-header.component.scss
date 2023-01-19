@@ -1,0 +1,15 @@
+.header-link {
+    font-size: var(--font-size-big);
+    color: var(--font-color-main);
+    text-decoration: none;
+
+    cursor: pointer;
+
+    &:hover {
+        font-weight: 600;
+    }
+
+    &.active {
+        font-weight: 600;
+    }
+}

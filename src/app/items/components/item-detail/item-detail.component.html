@@ -1,0 +1,51 @@
+<div class="wrapper">
+    <div class="wrapper-grid">
+        <div class="wrapper-flex column-1-13">
+            <form class="form" [formGroup]="itemForm" *ngIf="itemForm" (ngSubmit)="editItem()">
+                <div class="title">
+                    <input class="title__input" formControlName="title">
+                </div>
+                <div class="content">
+                    <div class="content__top">
+                        <div class="image">
+                            <img [src]="item?.thumbnail" [alt]="itemForm.value.title">
+                        </div>
+                        <div class="description">
+                            <div class="buy">
+                                <div class="price">
+                                    <input class="price__input" type="price" formControlName="price">$
+                                </div>
+                                <div class="buy__button">
+                                    Купить
+                                </div>
+                            </div>
+                            <div class="description__buttons">
+                                <div class="edit" [@contentExpansion]="isEditing? 'collapsed' : 'expanded'"
+                                    (click)="edit()">Изменить</div>
+                                <div class="cancel" [@contentExpansion]="isEditing? 'expanded' : 'collapsed'"
+                                    (click)="cancelEdit()">Отмена</div>
+                                <input class="end-edit"
+                                    [@contentExpansion]="isEditing? 'expanded' : 'collapsed'" type="submit"
+                                    value="Закончить редактирование" [disabled]="itemForm.invalid || !checkChanges()">
+                            </div>
+                            <span [@contentExpansion]="isSaved ? 'expanded' : 'collapsed'"
+                            class="item-changed"><svg width="18" height="24"
+                                viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 13.4338L9 21.4338L17 1" stroke="#2e5bff" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            Изменения успешно сохранены
+                        </span>
+                        </div>
+                    </div>
+                    <div class="content__bottom">
+                        <div class="description-text">
+                            <span>Описание:</span>
+                            <textarea class="description-text__input" formControlName="description"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
