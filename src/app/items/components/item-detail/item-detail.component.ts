@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { timeStamp } from 'console';
 import { format } from 'path';
+import { takeUntil } from 'rxjs';
 import { contentExpansion } from 'src/app/animations/content-expansion/content-expansion';
 import { contentExpansionHorizontal } from 'src/app/animations/content-expansion/content-expansion-horizontal';
 import { IItem } from 'src/app/interfaces/item';
+import { DestroyService } from 'src/app/services/destroy/destroy.service';
 import { FormGeneratorService } from 'src/app/services/form-generator/form-generator.service';
 import { ItemService } from 'src/app/services/item/item.service';
 
@@ -24,21 +26,24 @@ export class ItemDetailComponent implements OnInit {
   public isUserChanged: { title: boolean, description: boolean, price: boolean } = { title: false, description: false, price: false };
   public isSaved: boolean = false;
 
+  private _eventListenerTextarea!: EventListenerOrEventListenerObject;
+  private _textarea!: HTMLTextAreaElement;
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _item: ItemService,
     private _form: FormGeneratorService,
+    private _destroy$: DestroyService,
   ) { }
 
   public ngOnInit(): void {
-    this._activatedRoute.params.subscribe((params) => {
+    this._activatedRoute.params.pipe(takeUntil(this._destroy$)).subscribe((params) => {
       this._item.getProduct(params['id']).subscribe((item) => {
-        console.log(item);
         this.itemForm = this._form.getItemForm(item);
         this.item = item;
         this.itemForm.disable();
       });
-    });   
+    });
   }
 
   public edit(): void {

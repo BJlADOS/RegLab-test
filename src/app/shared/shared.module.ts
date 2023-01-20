@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ShortDescriptionPipe } from './pipes/short-description/short-description.pipe';
 import { SelectWithRadioComponent } from './components/select-with-radio/select-with-radio.component';
 import { ClickOutsideDirective } from './directives/click-outside/click-outside.directive';
+import { AutoResizeTextareaDirective } from './directives/auto-resize-textarea/auto-resize-textarea.directive';
 
 
 
@@ -18,6 +19,7 @@ import { ClickOutsideDirective } from './directives/click-outside/click-outside.
     ShortDescriptionPipe,
     SelectWithRadioComponent,
     ClickOutsideDirective,
+    AutoResizeTextareaDirective,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,8 @@ import { ClickOutsideDirective } from './directives/click-outside/click-outside.
     HeaderComponent,
     ShortDescriptionPipe,
     SelectWithRadioComponent,
+    AutoResizeTextareaDirective,
+    ClickOutsideDirective,
   ]
 })
 export class SharedModule { }

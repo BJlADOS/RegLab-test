@@ -100,6 +100,11 @@
                                 border: none;
                                 padding: .35rem 0;
                             }
+
+                            &:focus {
+                                outline: none;
+                                border-color: var(--main-accent-color);
+                            }
                         }
 
                     }
@@ -217,6 +222,15 @@
                         background-color: transparent;
                         border: none;
                     }
+
+                    &:focus {
+                        outline: none;
+                        border-color: var(--main-accent-color);
+                    }
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
                 }
             }
         }
@@ -239,7 +253,6 @@
 
                 & .description {
                     width: 100%;
-                    //align-items: flex-start;
 
                     & .buy {
                         width: 100%;

@@ -2,7 +2,7 @@
     <div class="wrapper-grid">
         <div class="wrapper-flex column-1-13">
             <div class="logo">
-                <div appClickOutside class="burger" (clickOutside)="burgerOpened = false">
+                <div appClickOutside class="burger" (clickOutside)="burgerOpened = false; toggleBodyOverflow()">
                     <label class="burger-icon-toggle" (click)="toggleBurger()">
                         <div class="spinner diagonal part-1" [class.transform]="burgerOpened"></div>
                         <div class="spinner horizontal" [class.transform]="burgerOpened"></div>
@@ -62,3 +62,4 @@
         </div>
     </div>
 </div>
+<div class="modal-backdrop" [class.none]="!burgerOpened"></div>

@@ -11,6 +11,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    text-decoration: none;
 
     transition: .3s ease;
 
@@ -18,11 +19,14 @@
         cursor: pointer;
         box-shadow: var(--box-shadow);
 
-        & .title {
-            & h2 {
-                color: var(--main-accent-color);
+        & .description {
+            & .title {
+                & h2 {
+                    color: var(--main-accent-color);
+                }
             }
         }
+
     }
 
     &__left {
@@ -60,6 +64,7 @@
 
             & h2 {
                 font-size: var(--font-size-big);
+                color: var(--font-color-main);
                 margin: 0;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -73,6 +78,7 @@
 
         & .text {
             overflow: hidden;
+            color: var(--font-color-main);
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 4;
@@ -102,6 +108,12 @@
                 cursor: pointer;
                 background-color: var(--grey);
             }
+        }
+
+        & .price {
+            font-size: var(--font-size-big);
+            font-family: var(--font-family);
+            color: var(--font-color-main);
         }
     }
 }

@@ -18,10 +18,6 @@ export class RouteLinkHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public navigateToRoute(): void {
-    this._router.navigate([this.routeLink]);
-  }
-
   public isActive(): boolean {
     return this._router.url === this.routeLink;
   }

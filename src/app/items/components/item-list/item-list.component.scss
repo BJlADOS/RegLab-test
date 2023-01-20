@@ -22,6 +22,11 @@
         margin-bottom: 3rem;
     
         & .search {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
             width: 100%;
             box-sizing: border-box;
             background-color: var(--white);
@@ -31,6 +36,27 @@
             position: sticky;
             top: 1rem;
             transition: .3s ease;
+
+            & .grid-buttons {
+                display: flex;
+                flex-direction: row;
+                gap: .5rem;
+                align-items: center;
+
+                & .selected {
+                    & path {
+                        stroke: var(--main-accent-color);
+                    }
+                }
+
+                & svg {
+                    transition: .3s ease;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.1);
+                    }
+                }
+            }
         }
 
         & .scroll-back {

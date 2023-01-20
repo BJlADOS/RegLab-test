@@ -1,9 +1,12 @@
 .wrapper-header {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     height: 80px;
     border-bottom: 2px solid var(--border-color);
+    background-color: var(--white);
+    z-index: 100;
 
     &__bottom {
         width: 100%;
@@ -54,8 +57,8 @@
         & .burger {
 
             & .burger-menu {
-                display: flex;
-                position: fixed;
+                display: none;
+                position: absolute;
                 flex-direction: column;
                 box-sizing: border-box;
                 gap: .75rem;
@@ -83,6 +86,7 @@
                     width: 100%;
                     padding: .35rem .7rem;
                     border-bottom: 1px solid var(--border-color);
+                    font-size: var(--font-size-big);
 
                     &:hover {
                         background-color: var(--grey);
@@ -208,6 +212,22 @@
     }
 }
 
+.modal-backdrop {
+    opacity: .6;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #000;
+    align-items: center;
+
+    &.none {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .wrapper-flex {
 
@@ -219,6 +239,10 @@
             & .burger {
                 & .burger-icon-toggle {
                     display: block;
+                }
+
+                & .burger-menu {
+                    display: flex;
                 }
             }
         }

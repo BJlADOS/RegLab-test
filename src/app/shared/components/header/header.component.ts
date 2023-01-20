@@ -28,6 +28,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this._router.events
       .pipe(filter((event: RouterEvent | RouteConfigLoadStart | RouteConfigLoadEnd | ChildActivationStart | ChildActivationEnd | ActivationStart | ActivationEnd | Scroll) => event instanceof NavigationEnd), takeUntil(this._destroy$))
       .subscribe(() => this.breadcrumbs = this.createBreadcrumbs(this._activatedRoute.root));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 480 && this.burgerOpened) {
+        this.burgerOpened = false;
+        this.toggleBodyOverflow();
+      }
+    });
   }
 
   public ngOnDestroy(): void {
@@ -40,6 +46,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public toggleBurger(): void {
     this.burgerOpened = !this.burgerOpened;
+    this.toggleBodyOverflow();
+  }
+
+  public toggleBodyOverflow(): void {
+    document.body.style.overflow = this.burgerOpened ? 'hidden' : 'auto';
   }
 
   private createBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
