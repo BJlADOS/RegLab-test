@@ -26,9 +26,6 @@ export class ItemDetailComponent implements OnInit {
   public isUserChanged: { title: boolean, description: boolean, price: boolean } = { title: false, description: false, price: false };
   public isSaved: boolean = false;
 
-  private _eventListenerTextarea!: EventListenerOrEventListenerObject;
-  private _textarea!: HTMLTextAreaElement;
-
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _item: ItemService,

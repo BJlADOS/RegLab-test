@@ -18,7 +18,7 @@ export const CUSTOM_SELECT_VALUE_ACCESSOR: any = {
 })
 export class SelectWithRadioComponent implements OnInit, ControlValueAccessor {
 
-  @Input() options: any[] =[];
+  @Input() options: any[] = [];
   @Input() title: string = 'Select';
   @Input() required: boolean = false;
 
@@ -30,7 +30,7 @@ export class SelectWithRadioComponent implements OnInit, ControlValueAccessor {
   public edited: boolean = false;
 
   constructor(
-      private elem: ElementRef
+    private elem: ElementRef
   ) { }
 
   public writeValue(obj: any): void {
@@ -51,30 +51,30 @@ export class SelectWithRadioComponent implements OnInit, ControlValueAccessor {
   public ngOnInit(): void {
   }
 
-  public get dropdownElement(): Element {return this.elem.nativeElement.querySelector('.dropdown-list')}
+  public get dropdownElement(): Element { return this.elem.nativeElement.querySelector('.dropdown-list') }
 
   public closeDropdown(): void {
-      this.dropdownElement.setAttribute('aria-expanded', "false");
-      this.dropdownOpen = false;
+    this.dropdownElement.setAttribute('aria-expanded', "false");
+    this.dropdownOpen = false;
   }
 
   public selectByIndex(i: number): void {
-      let value = this.options[i];
-      this.select(value);
+    let value = this.options[i];
+    this.select(value);
   }
 
   public select(value: any): void {
-      this.currentValue = value;
-      this.edited = true;
-      this.closeDropdown();
-      this.onChange(value);
+    this.currentValue = value;
+    this.edited = true;
+    this.closeDropdown();
+    this.onChange(value);
   }
 
-  public toggleDropdown():void {
+  public toggleDropdown(): void {
     if (this.disabled) {
       return;
     }
-    
+
     this.dropdownOpen = !this.dropdownOpen;
     this.dropdownElement.setAttribute('aria-expanded', this.dropdownOpen ? "true" : "false");
   }

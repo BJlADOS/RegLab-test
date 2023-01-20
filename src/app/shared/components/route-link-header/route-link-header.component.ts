@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './route-link-header.component.html',
   styleUrls: ['./route-link-header.component.scss']
 })
-export class RouteLinkHeaderComponent implements OnInit {
+export class RouteLinkHeaderComponent {
 
   @Input() routeLink: string = '';
   @Input() title: string = '';
@@ -14,9 +14,6 @@ export class RouteLinkHeaderComponent implements OnInit {
   constructor(
     private _router: Router,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   public isActive(): boolean {
     return this._router.url === this.routeLink;

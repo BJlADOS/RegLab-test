@@ -15,13 +15,12 @@ export class ItemListComponent implements OnInit, OnDestroy {
   public columnsNumber: number = 2;
   public items: IItem[] = [];
   public sort: Sort = Sort.asc;
-
-  private _destroy$: Subject<void> = new Subject<void>();
+  
   public resizeObservable$!: Observable<Event>;
-
   public canScrollBack: boolean = false;
 
   private callback = this.throttle(this.checkPosition.bind(this), 250);
+  private _destroy$: Subject<void> = new Subject<void>();
   private itemsAmount: number = 0;
 
   constructor(
