@@ -20,6 +20,7 @@
                 <div class="content__main">
                     <div class="items" [style.grid-template-columns]="'repeat(' + columnsNumber + ', 1fr)'">
                         <app-item-card class="item" *ngFor="let item of items" [item]="item"></app-item-card>
+                        <div class="no-items" *ngIf="!items.length">По вашему запросу ничего не найдено :(</div>
                     </div>
                 </div>
                 <div class="scroll-back" *ngIf="canScrollBack" (click)="scrollBack()">

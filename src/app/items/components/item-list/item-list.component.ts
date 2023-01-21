@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { fromEvent, Observable, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { IItem, IItemPage } from 'src/app/interfaces/item';
 import { Sort } from 'src/app/interfaces/search';
 import { SearchItemsService } from 'src/app/services/search-items/search-items.service';

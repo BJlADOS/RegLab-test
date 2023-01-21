@@ -1,4 +1,4 @@
-import { Directive, HostListener, OnDestroy } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appAutoResizeTextarea]'

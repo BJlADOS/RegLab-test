@@ -75,7 +75,16 @@ export class ItemDetailComponent implements OnInit {
 
   private resetForm(): void {
     this.itemForm.reset(this.item);
+    this.triggerInputEvent();
     this.itemForm.disable();
+  }
+
+  private triggerInputEvent(): void {
+    const event = new Event('input', { bubbles: true });
+    const textarea = document.getElementById('textarea-detail');
+    if (textarea) {
+      textarea.dispatchEvent(event);
+    }
   }
 
 }

@@ -34,6 +34,5 @@ export class SortService {
       default:
         return items;
     }
-
   }
 }
