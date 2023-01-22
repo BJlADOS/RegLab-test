@@ -1,4 +1,4 @@
-import { Component, ElementRef, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, forwardRef, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { contentExpansion } from 'src/app/animations/content-expansion/content-expansion';
 import { rotate180 } from 'src/app/animations/rotate/rotate180';
@@ -16,7 +16,7 @@ export const CUSTOM_SELECT_VALUE_ACCESSOR: any = {
   animations: [contentExpansion, rotate180],
   providers: [CUSTOM_SELECT_VALUE_ACCESSOR]
 })
-export class SelectWithRadioComponent implements OnInit, ControlValueAccessor {
+export class SelectWithRadioComponent implements ControlValueAccessor {
 
   @Input() options: any[] = [];
   @Input() title: string = 'Select';
@@ -46,9 +46,6 @@ export class SelectWithRadioComponent implements OnInit, ControlValueAccessor {
   }
   public setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
-  }
-
-  public ngOnInit(): void {
   }
 
   public get dropdownElement(): Element { return this.elem.nativeElement.querySelector('.dropdown-list') }

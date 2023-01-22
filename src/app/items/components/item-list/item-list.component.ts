@@ -51,11 +51,6 @@ export class ItemListComponent implements OnInit, OnDestroy {
     window.removeEventListener('resize', this.callback);
   }
 
-  public resetResults(): void {
-    this.items = [];
-    this.scrollBack();
-  }
-
   public scrollBack(): void {
     window.scroll({
       top: 0,
@@ -67,6 +62,11 @@ export class ItemListComponent implements OnInit, OnDestroy {
   public updateSearch(term: Sort): void {
     this.sort = term;
     this.resetResults();
+  }
+
+  private resetResults(): void {
+    this.items = [];
+    this.scrollBack();
   }
 
   private async checkPosition(): Promise<void> {

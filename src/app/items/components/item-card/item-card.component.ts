@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { IItem } from 'src/app/interfaces/item';
 
 @Component({
@@ -12,9 +11,7 @@ export class ItemCardComponent {
   @Input() item!: IItem;
   @Input() windowWidth!: number;
 
-  constructor(
-    private _router: Router,
-  ) { }
+  constructor() { }
 
   public buy(): void {
     console.log('buy');

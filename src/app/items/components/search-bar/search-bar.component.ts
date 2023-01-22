@@ -31,14 +31,12 @@ export class SearchBarComponent implements OnInit {
     this.searchForm.controls['search'].valueChanges
     .pipe(
       debounceTime(300),
-      takeUntil(this._destroy$)
-    )
+      takeUntil(this._destroy$))
     .subscribe(term => this.search(term));
 
     this.sortForm.controls['sort'].valueChanges
     .pipe(
-      takeUntil(this._destroy$)
-    )
+      takeUntil(this._destroy$))
     .subscribe(sort => {
       this.madeSearch.emit(sort.id);
       this._itemSearch.search(this.searchForm.value.search);

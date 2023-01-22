@@ -1,8 +1,6 @@
-import { AfterContentChecked, AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { timeStamp } from 'console';
-import { format } from 'path';
 import { takeUntil } from 'rxjs';
 import { contentExpansion } from 'src/app/animations/content-expansion/content-expansion';
 import { contentExpansionHorizontal } from 'src/app/animations/content-expansion/content-expansion-horizontal';
